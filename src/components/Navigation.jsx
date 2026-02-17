@@ -1,16 +1,26 @@
+import { Link, useLocation } from 'react-router-dom';
 import { NAV } from '../data/constants';
 
 function Navigation({ scrolled }) {
+  const location = useLocation();
+  
+  const getRoutePath = (navItem) => {
+    switch(navItem) {
+      case 'Inicio': return '/';
+      case 'Nosotros': return '/nosotros';
+      case 'Empresas': return '/empresas';
+      case 'Trabaja con Nosotros': return '/trabaja';
+      case 'RSE': return '/rse';
+      case 'Contacto': return '/contacto';
+      default: return '/';
+    }
+  };
+
   return (
     <nav className={`nav ${scrolled ? "sc" : ""}`}>
       <div className="logo">
         <div className="lm">AZ</div>
         <span className="lw">Grupo Azeta</span>
-      </div>
-      <div className="nl">
-        {NAV.map(n => (
-          <span key={n} className={`nl-a ${n === "Nosotros" ? "active" : ""}`}>{n}</span>
-        ))}
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <span style={{ fontSize: "0.62rem", letterSpacing: "0.25em",

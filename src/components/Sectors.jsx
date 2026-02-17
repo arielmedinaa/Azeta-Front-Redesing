@@ -33,10 +33,6 @@ function Sectors({ refs }) {
               <span className="sc-tag">{tag}</span>
             </div>
             <div className="sc-name">{name}</div>
-            <div className="sc-arrow">
-              <span>Ver empresas</span>
-              <Icons.MdArrowOutward size={14} />
-            </div>
           </div>
         ))}
       </div>
